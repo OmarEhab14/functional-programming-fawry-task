@@ -20,11 +20,20 @@ public class Main {
         System.out.println(tripleNumber.apply(4));
         System.out.println(multiplyBy(5).apply(6));
 
+        Consumer<String> greet = (name) -> System.out.println("Hello, " + name);
+        processUserInput(greet);
+
+        greet.accept("Abdullah");
+
     }
     public static void register(String name, Consumer<String> callback) {
         callback.accept(name + "domain.com");
     }
     public static Function<Integer, Integer> multiplyBy(int x) {
         return y -> x * y;
+    }
+    public static void processUserInput(Consumer<String> callback) {
+        final String name = "Omar";
+        callback.accept(name);
     }
 }
